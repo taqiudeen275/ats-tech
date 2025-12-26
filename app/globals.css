@@ -1,26 +1,251 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* ATS Custom Colors */
+  --color-ats-red: #FF0000;
+  --color-ats-dark: #0A0A0A;
+  --color-ats-gray: #1A1A1A;
+  --color-ats-green: #00FF00;
+  --color-neu-yellow: #FFDE00;
+  --color-neu-pink: #FF90E8;
+  --color-neu-blue: #22CCFF;
+  --color-neu-white: #FFFFFF;
+  --color-neu-black: #000000;
+  --color-clay-bg: #F0F4F8;
+  --color-clay-blue: #6C5CE7;
+  --color-clay-teal: #00CEC9;
+  --color-clay-pink: #FD79A8;
+  --color-anti-yellow: #FFFF00;
+  --color-anti-blue: #0000FF;
+  --color-hyper-gray: #FAFAFA;
+  --color-grain-beige: #E6E2DA;
+  --color-grain-dark: #2C2C2C;
+  --color-grain-red: #8B0000;
+  --color-lux-black: #050505;
+  --color-lux-gray: #1A1A1A;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Typography */
+  --font-mono: "Space Mono", monospace;
+  --font-pixel: "VT323", monospace;
+  --font-serif: "Times New Roman", Times, serif;
+  --font-sans: "Inter", sans-serif;
+  --font-courier: "Courier Prime", monospace;
+  --font-outfit: "Outfit", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Shadows */
+  --shadow-neu: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-neu-sm: 2px 2px 0px 0px rgba(0,0,0,1);
+  --shadow-neu-lg: 8px 8px 0px 0px rgba(0,0,0,1);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+  /* Animations */
+  --animate-blink: blink 1s step-end infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-scan-fast: scan 1.5s linear infinite;
+  --animate-glitch: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  --animate-wobble: wobble 0.5s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bounce-gentle: bounce-gentle 3s infinite ease-in-out;
+  --animate-marquee: marquee 20s linear infinite;
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes scan {
+    0% { top: -20%; }
+    100% { top: 120%; }
+  }
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  @keyframes bounce-gentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 }
 
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Global Theme Classes (Applied to body or a wrapper) */
+
+/* Neubrutalism Theme */
+.theme-neubrutalism {
+  background-color: #ffffff;
+  color: #000000;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Glassmorphism Theme */
+.theme-glassmorphism {
+  background: linear-gradient(125deg, #1A0B2E, #4B0082, #FF00FF, #00FFFF, #00008B);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  color: #fff;
+}
+
+/* Claymorphism Theme */
+.theme-claymorphism {
+  background-color: #F0F4F8;
+  color: #2D3436;
+}
+
+/* Anti-design / Brutalist Theme */
+.theme-antidesign {
+  background-color: #FFFF00;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: -0.05em;
+}
+
+/* Hyperminimal Theme */
+.theme-hyperminimal {
+  background-color: #FAFAFA;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/* Grain & Texture Theme */
+.theme-grain {
+  background-color: #E6E2DA;
+  color: #2C2C2C;
+  font-family: "Courier Prime", monospace;
+}
+
+/* Add noise overlay to body when grain theme is active */
+.theme-grain::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Lux / Cinematic Theme */
+.theme-lux {
+  background-color: #050505;
+  color: #ffffff;
+  font-family: "Outfit", sans-serif;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Utility Classes migrated */
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Claymorphism Utilities */
+.clay-card {
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 
+    10px 10px 20px rgba(163, 177, 198, 0.3), 
+    -10px -10px 20px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.clay-button {
+  border-radius: 50px;
+  box-shadow: 
+    6px 6px 12px rgba(163, 177, 198, 0.3), 
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+}
+.clay-button:active {
+  box-shadow: 
+    inset 4px 4px 8px rgba(163, 177, 198, 0.3), 
+    inset -4px -4px 8px rgba(255, 255, 255, 1);
+  transform: scale(0.96);
+}
+
+/* Grain Utilities */
+.grain-card {
+  background-color: #F5F2EA;
+  border: 1px solid #D1CDC5;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+/* CRT Overlay */
+.scanlines-overlay::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.02);
+  opacity: 0;
+  z-index: 101;
+}
+@keyframes flicker {
+  0% { opacity: 0.01; }
+  5% { opacity: 0.03; }
+  10% { opacity: 0.01; }
 }

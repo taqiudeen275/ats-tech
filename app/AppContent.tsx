@@ -28,10 +28,10 @@ const AppContent: React.FC = () => {
 
   // Dynamic base classes for the main content wrapper
   let mainClasses = "min-h-screen transition-colors duration-500 relative z-10";
+  
+  // Note: Most backgrounds are now handled by the .theme-X classes in globals.css applied to document.body
+  // However, we still apply utility-like classes here if needed for consistency or overriding.
   if (isRetro) mainClasses += " bg-black text-white";
-  else if (isNeu) mainClasses += " bg-white text-black";
-  else if (isGlass) mainClasses += " bg-transparent text-white"; 
-  else if (isClay) mainClasses += " bg-transparent text-gray-800"; 
   else if (isAnti) mainClasses += " bg-anti-yellow text-black";
   else if (isHyper) mainClasses += " bg-hyper-gray text-black";
   else if (isGrain) mainClasses += " bg-grain-beige text-grain-dark";
