@@ -207,11 +207,11 @@ const Solutions: React.FC = () => {
 
             <div className={`${isHyper || isLux ? 'p-0' : 'p-6 md:p-8'} h-full flex flex-col relative overflow-hidden`}>
                {/* Background Grid */}
-               <div className={`absolute inset-0 bg-[size:40px_40px] pointer-events-none opacity-20
+               <div className={`absolute inset-0 bg-size-[40px_40px] pointer-events-none opacity-20
                   ${isNeu 
                     ? 'bg-[linear-gradient(rgba(0,0,0,0.1)_2px,transparent_2px),linear-gradient(90deg,rgba(0,0,0,0.1)_2px,transparent_2px)]' 
                     : isClay
-                      ? 'bg-[radial-gradient(#6C5CE7_1px,transparent_1px)] opacity-10 bg-[size:20px_20px]'
+                      ? 'bg-[radial-gradient(#6C5CE7_1px,transparent_1px)] opacity-10 bg-size-[20px_20px]'
                       : isAnti || isHyper || isGrain || isLux
                         ? 'hidden'
                       : 'bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)]'}`}></div>
@@ -296,7 +296,7 @@ const Solutions: React.FC = () => {
                               : isClay
                                 ? 'bg-clay-blue text-white clay-button-colored rounded-2xl hover:bg-clay-blue/90'
                                 : isAnti
-                                  ? 'bg-blue-700 text-white hover:bg-red-600 rounded-none border-2 border-white outline outline-2 outline-black'
+                                  ? 'bg-blue-700 text-white hover:bg-red-600 rounded-none border-2 border-white  outline-2 outline-black'
                                   : isHyper
                                     ? 'bg-black text-white font-sans rounded-full font-normal hover:bg-gray-700 text-sm px-8'
                                     : isGrain

@@ -48,7 +48,7 @@ const Process: React.FC = () => {
                            : isHyper
                              ? 'bg-white w-3 h-3 ring-4 ring-hyper-gray'
                              : isGrain
-                               ? 'bg-grain-dark w-2 h-2 rounded-full outline outline-4 outline-grain-beige'
+                               ? 'bg-grain-dark w-2 h-2 rounded-full  outline-4 outline-grain-beige'
                                : isLux
                                  ? 'bg-black border border-white/50 w-3 h-3'
                        : 'bg-black border-2 border-white'}`}>

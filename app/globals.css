@@ -85,167 +85,369 @@
     100% { transform: translateX(-100%); }
   }
 }
+  body {
+        background-color: #000;
+        color: #fff;
+        overflow-x: hidden;
+        transition: background 0.5s ease, color 0.3s ease;
+      }
+      
+      /* Neubrutalism Theme */
+      body.theme-neubrutalism {
+        background-color: #ffffff;
+        color: #000000;
+        cursor: auto !important;
+      }
 
-/* Base Styles */
-body {
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
-  transition: background 0.5s ease, color 0.3s ease;
-  min-height: 100vh;
-}
+      /* Glassmorphism Theme */
+      /* body.theme-glassmorphism {
+        background: linear-gradient(125deg, #1A0B2E, #4B0082, #FF00FF, #00FFFF, #00008B);
+        background-size: 400% 400%;
+        animation: gradientBG 20s ease infinite;
+        color: #fff;
+        cursor: auto !important;
+      } */
+      
+      /* Claymorphism Theme */
+      body.theme-claymorphism {
+        background-color: #F0F4F8;
+        color: #2D3436;
+        cursor: auto !important;
+      }
 
-/* Global Theme Classes (Applied to body or a wrapper) */
+      /* Anti-design / Brutalist Theme */
+      body.theme-antidesign {
+        background-color: #FFFF00; /* Warning Yellow */
+        color: #000000;
+        font-family: "Times New Roman", Times, serif;
+        cursor: crosshair !important;
+        letter-spacing: -0.05em;
+      }
 
-/* Neubrutalism Theme */
-.theme-neubrutalism {
-  background-color: #ffffff;
-  color: #000000;
-  --font-sans: "Inter", sans-serif;
-}
+      /* Hyperminimal Theme */
+      body.theme-hyperminimal {
+        background-color: #FAFAFA; /* Near white */
+        color: #000000;
+        font-family: "Inter", sans-serif;
+        cursor: default !important;
+        letter-spacing: -0.03em;
+      }
 
-/* Glassmorphism Theme */
-.theme-glassmorphism {
-  background: linear-gradient(125deg, #1A0B2E, #4B0082, #FF00FF, #00FFFF, #00008B);
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
-  color: #fff;
-}
+      /* Grain & Texture Theme */
+      body.theme-grain {
+        background-color: #E6E2DA; /* Warm beige/paper */
+        color: #2C2C2C; /* Dark charcoal */
+        font-family: "Courier Prime", monospace;
+        cursor: text !important;
+      }
+      
+      /* Add noise overlay to body when grain theme is active */
+      body.theme-grain::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 100;
+        opacity: 0.15;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
 
-/* Claymorphism Theme */
-.theme-claymorphism {
-  background-color: #F0F4F8;
-  color: #2D3436;
-}
+      /* Lux / Cinematic Theme */
+      body.theme-lux {
+        background-color: #050505;
+        color: #ffffff;
+        font-family: "Outfit", sans-serif;
+        cursor: none !important; /* Custom cursor is mandatory */
+      }
+      body.theme-lux ::selection {
+        background: #ffffff;
+        color: #000000;
+      }
 
-/* Anti-design / Brutalist Theme */
-.theme-antidesign {
-  background-color: #FFFF00;
-  color: #000000;
-  font-family: "Times New Roman", Times, serif;
-  letter-spacing: -0.05em;
-}
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      body.theme-neubrutalism a, 
+      body.theme-neubrutalism button,
+      body.theme-glassmorphism a,
+      body.theme-glassmorphism button,
+      body.theme-claymorphism a,
+      body.theme-claymorphism button,
+      body.theme-antidesign a,
+      body.theme-antidesign button,
+      body.theme-hyperminimal a,
+      body.theme-hyperminimal button,
+      body.theme-grain a,
+      body.theme-grain button {
+        cursor: pointer !important;
+      }
 
-/* Hyperminimal Theme */
-.theme-hyperminimal {
-  background-color: #FAFAFA;
-  color: #000000;
-  font-family: "Inter", sans-serif;
-  letter-spacing: -0.03em;
-}
+      /* Hide Default Cursor on Desktop only for Retro & Lux Theme */
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) {
+        @media (hover: hover) and (pointer: fine) {
+          cursor: none !important;
+        }
+      }
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) a, 
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) button, 
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) input, 
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) textarea, 
+      body:not(.theme-neubrutalism):not(.theme-glassmorphism):not(.theme-claymorphism):not(.theme-antidesign):not(.theme-hyperminimal):not(.theme-grain) select {
+        @media (hover: hover) and (pointer: fine) {
+          cursor: none !important;
+        }
+      }
 
-/* Grain & Texture Theme */
-.theme-grain {
-  background-color: #E6E2DA;
-  color: #2C2C2C;
-  font-family: "Courier Prime", monospace;
-}
+      /* Anti-design specific cursor overrides */
+      body.theme-antidesign a,
+      body.theme-antidesign button {
+        cursor: help !important;
+      }
 
-/* Add noise overlay to body when grain theme is active */
-.theme-grain::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 100;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      body.theme-neubrutalism ::-webkit-scrollbar-track,
+      body.theme-claymorphism ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      body.theme-glassmorphism ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      body.theme-antidesign ::-webkit-scrollbar-track {
+        background: #0000FF; /* Blue track */
+      }
+      body.theme-hyperminimal ::-webkit-scrollbar {
+        width: 4px; /* Minimal width */
+      }
+      body.theme-hyperminimal ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      body.theme-grain ::-webkit-scrollbar-track {
+        background: #D8D4C9;
+        border-left: 1px solid #CCC;
+      }
+      body.theme-lux ::-webkit-scrollbar {
+        width: 6px;
+      }
+      body.theme-lux ::-webkit-scrollbar-track {
+        background: #050505;
+      }
 
-/* Lux / Cinematic Theme */
-.theme-lux {
-  background-color: #050505;
-  color: #ffffff;
-  font-family: "Outfit", sans-serif;
-}
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: 1px solid #000;
+      }
+      body.theme-neubrutalism ::-webkit-scrollbar-thumb {
+        background: #000;
+        border: 2px solid #fff;
+      }
+      body.theme-claymorphism ::-webkit-scrollbar-thumb {
+        background: #B0BEC5;
+        border: 3px solid #F0F4F8;
+        border-radius: 20px;
+      }
+      body.theme-glassmorphism ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+      body.theme-antidesign ::-webkit-scrollbar-thumb {
+         background: #FF0000; /* Red thumb */
+         border: 2px solid #00FF00; /* Green border */
+         border-radius: 0;
+      }
+      body.theme-hyperminimal ::-webkit-scrollbar-thumb {
+        background: #E0E0E0;
+        border: none;
+        border-radius: 2px;
+      }
+      body.theme-grain ::-webkit-scrollbar-thumb {
+        background: #5A5A5A;
+        border: 1px solid #E6E2DA;
+      }
+      body.theme-lux ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: none;
+        border-radius: 4px;
+      }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+      ::-webkit-scrollbar-thumb:hover {
+        background: #FF0000;
+      }
+      body.theme-neubrutalism ::-webkit-scrollbar-thumb:hover {
+        background: #FFDE00;
+      }
+      body.theme-claymorphism ::-webkit-scrollbar-thumb:hover {
+        background: #6C5CE7;
+      }
+      body.theme-glassmorphism ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+      body.theme-antidesign ::-webkit-scrollbar-thumb:hover {
+        background: #FFFFFF;
+      }
+      body.theme-hyperminimal ::-webkit-scrollbar-thumb:hover {
+        background: #000000;
+      }
+      body.theme-grain ::-webkit-scrollbar-thumb:hover {
+        background: #2C2C2C;
+      }
+      body.theme-lux ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+      
+      .scanlines-overlay::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 2;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
 
-/* Utility Classes migrated */
+      .crt-flicker {
+        animation: flicker 0.15s infinite;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255,255,255,0.02);
+        opacity: 0;
+        z-index: 50;
+      }
+      @keyframes flicker {
+        0% { opacity: 0.01; }
+        5% { opacity: 0.03; }
+        10% { opacity: 0.01; }
+      }
+      
+      /* Glassmorphism Utilities */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+      }
 
-/* Glassmorphism Utilities */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-}
-.glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-}
+      /* Claymorphism Utilities */
+      .clay-card {
+        background: #ffffff;
+        border-radius: 32px;
+        box-shadow: 
+          10px 10px 20px rgba(163, 177, 198, 0.3), 
+          -10px -10px 20px rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(255,255,255,0.5);
+      }
+      .clay-button {
+        border-radius: 50px;
+        box-shadow: 
+          6px 6px 12px rgba(163, 177, 198, 0.3), 
+          -6px -6px 12px rgba(255, 255, 255, 0.8),
+          inset 2px 2px 4px rgba(255, 255, 255, 0.5);
+        transition: all 0.2s ease;
+      }
+      .clay-button:active {
+        box-shadow: 
+          inset 4px 4px 8px rgba(163, 177, 198, 0.3), 
+          inset -4px -4px 8px rgba(255, 255, 255, 1);
+        transform: scale(0.96);
+      }
+      .clay-button-colored {
+         box-shadow: 
+          6px 6px 14px rgba(0,0,0,0.15), 
+          -6px -6px 14px rgba(255, 255, 255, 0.2),
+          inset 3px 3px 6px rgba(255, 255, 255, 0.3),
+          inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .clay-button-colored:active {
+        box-shadow: inset 3px 3px 8px rgba(0,0,0,0.2);
+        transform: scale(0.96);
+      }
+      .clay-input {
+        border-radius: 20px;
+        background: #f0f4f8;
+        box-shadow: 
+          inset 5px 5px 10px rgba(163, 177, 198, 0.3), 
+          inset -5px -5px 10px rgba(255, 255, 255, 0.8);
+        border: none;
+      }
+      .clay-text-shadow {
+         text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+      }
 
-/* Claymorphism Utilities */
-.clay-card {
-  background: #ffffff;
-  border-radius: 32px;
-  box-shadow: 
-    10px 10px 20px rgba(163, 177, 198, 0.3), 
-    -10px -10px 20px rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(255,255,255,0.5);
-}
-.clay-button {
-  border-radius: 50px;
-  box-shadow: 
-    6px 6px 12px rgba(163, 177, 198, 0.3), 
-    -6px -6px 12px rgba(255, 255, 255, 0.8),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.5);
-  transition: all 0.2s ease;
-}
-.clay-button:active {
-  box-shadow: 
-    inset 4px 4px 8px rgba(163, 177, 198, 0.3), 
-    inset -4px -4px 8px rgba(255, 255, 255, 1);
-  transform: scale(0.96);
-}
+      /* Anti-design Utilities */
+      .anti-border {
+        border: 2px solid blue;
+      }
+      .anti-link {
+        color: blue;
+        text-decoration: underline;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      .anti-link:hover {
+        background-color: blue;
+        color: white;
+      }
+      .anti-bg-pattern {
+        background-image: repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), repeating-linear-gradient(45deg, #ccc 25%, #f0f0f0 25%, #f0f0f0 75%, #ccc 75%, #ccc);
+        background-position: 0 0, 10px 10px;
+        background-size: 20px 20px;
+      }
 
-/* Grain Utilities */
-.grain-card {
-  background-color: #F5F2EA;
-  border: 1px solid #D1CDC5;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-}
+      /* Hyperminimal Utilities */
+      .hyper-link {
+         text-decoration: none;
+         color: #666;
+         transition: color 0.2s ease;
+      }
+      .hyper-link:hover {
+         color: #000;
+      }
+      .hyper-card {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
 
-/* CRT Overlay */
-.scanlines-overlay::before {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  z-index: 99;
-  background-size: 100% 2px, 3px 100%;
-  pointer-events: none;
-}
-
-.crt-flicker {
-  animation: flicker 0.15s infinite;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(255,255,255,0.02);
-  opacity: 0;
-  z-index: 101;
-}
-@keyframes flicker {
-  0% { opacity: 0.01; }
-  5% { opacity: 0.03; }
-  10% { opacity: 0.01; }
-}
+      /* Grain Utilities */
+      .grain-card {
+        background-color: #F5F2EA;
+        border: 1px solid #D1CDC5;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+      }
+      .grain-texture-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+        opacity: 0.1;
+        pointer-events: none;
+      }

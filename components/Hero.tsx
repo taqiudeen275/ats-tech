@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Typewriter from './Typewriter';
 import { ArrowRight } from 'lucide-react';
@@ -65,7 +66,7 @@ const Hero: React.FC = () => {
             <span className={isNeu 
               ? 'bg-black text-white px-2' 
               : isGlass 
-                ? 'text-transparent bg-clip-text linear-gradient-to-r from-cyan-300 to-purple-400'
+                ? 'text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-purple-400'
                 : isClay
                   ? 'text-clay-blue'
                   : isAnti
@@ -75,8 +76,8 @@ const Hero: React.FC = () => {
                       : isGrain
                         ? 'text-grain-dark border-b-4 border-grain-dark'
                         : isLux
-                          ? 'text-transparent bg-clip-text linear-gradient-to-r from-white via-white to-gray-500'
-                  : 'text-transparent bg-clip-text linear-gradient-to-r from-white to-gray-500'}>
+                          ? 'text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500'
+                  : 'text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500'}>
               {isHyper ? 'future.' : 'FUTURE'}
               <span className={isNeu ? 'text-neu-yellow' : isGlass ? 'text-purple-300' : isClay ? 'text-clay-teal' : isAnti ? 'text-red-600' : isHyper ? 'hidden' : isGrain ? 'text-grain-red' : isLux ? 'text-white' : 'text-ats-red animate-blink'}>{isLux ? '.' : '_'}</span>
             </span>
