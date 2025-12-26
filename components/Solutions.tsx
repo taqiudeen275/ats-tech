@@ -20,14 +20,7 @@ const solutions: Solution[] = [
     specs: ['Live Verification', 'USSD Voting', 'Paid/Free Events'],
     image: 'https://picsum.photos/600/401?grayscale&blur=2'
   },
-  {
-    id: 'sol-03',
-    name: 'MEETING_HOST.net',
-    version: 'v1.0.0',
-    description: 'Customized secure video conferencing platform based on Jitsi Meet. Tailored for online event hosting.',
-    specs: ['Custom Jitsi Core', 'High Scalability', 'Low Latency'],
-    image: 'https://picsum.photos/600/402?grayscale&blur=2'
-  }
+
 ];
 
 const Solutions: React.FC = () => {

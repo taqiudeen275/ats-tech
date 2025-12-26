@@ -11,6 +11,8 @@ export interface Service {
   description: string;
   icon: LucideIcon;
   command: string;
+  status: 'PLANNED' | 'IN_PROGRESS' | 'LIVE' | 'CONCEPT';
+  details?: string;
 }
 
 export interface Solution {
