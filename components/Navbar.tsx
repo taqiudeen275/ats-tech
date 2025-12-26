@@ -169,13 +169,14 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Controls / Hyperminimal Toggle */}
       <div className={`md:hidden flex items-center gap-4 ${isHyper ? 'md:flex' : ''}`}>
-        {!isHyper && (
+        {(
           <>
             <button
                onClick={toggleTheme}
                className={`${isNeu || isAnti || isHyper || isGrain ? 'text-black' : isClay ? 'text-gray-700' : 'text-white'}`}
             >
                {isNeu ? <Zap size={20} /> : isGlass ? <Sparkles size={20} /> : isClay ? <Circle size={20} /> : isAnti ? <Triangle size={20} /> : isHyper ? <Minus size={20} /> : isGrain ? <FileText size={20} /> : isLux ? <Aperture size={20} /> : <Eye size={20} />}
+            
             </button>
 
             <button
