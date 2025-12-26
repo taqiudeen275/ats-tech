@@ -1,9 +1,9 @@
 import React from 'react';
 import { Code, Cloud, Cpu, Lock, Terminal as TerminalIcon, BarChart } from 'lucide-react';
-import { Service } from '../types';
+import { Service } from '@/types';
 import InteractiveBackground from './InteractiveBackground';
-import { useSound } from '../hooks/useSound';
-import { useTheme } from '../context/ThemeContext';
+import { useSound } from '@/hooks/useSound';
+import { useTheme } from '@/context/ThemeContext';
 
 const services: Service[] = [
   {
@@ -65,7 +65,7 @@ const Services: React.FC = () => {
           {isNeu ? (
             <div className="h-2 w-full bg-black"></div>
           ) : isGlass ? (
-            <div className="h-px w-full bg-gradient-to-r from-cyan-400 to-transparent opacity-50"></div>
+            <div className="h-px w-full bg-linear-to-r from-cyan-400 to-transparent opacity-50"></div>
           ) : isClay ? (
             <div className="h-2 w-full bg-white rounded-full shadow-[inset_2px_2px_5px_rgba(0,0,0,0.1)]"></div>
           ) : isAnti ? (
@@ -75,7 +75,7 @@ const Services: React.FC = () => {
           ) : isGrain ? (
             <div className="h-px w-full bg-gray-400 border-b border-gray-300"></div>
           ) : (
-            <div className="h-px w-full bg-gradient-to-r from-ats-red to-transparent opacity-50"></div>
+            <div className="h-px w-full bg-linear-to-r from-ats-red to-transparent opacity-50"></div>
           )}
           <p className={`font-mono mt-4 text-sm max-w-2xl ${isNeu ? 'text-black font-bold' : isGlass ? 'text-white/70' : isClay ? 'text-gray-500' : isAnti ? 'text-black font-serif text-xl bg-gray-200' : isHyper ? 'font-sans text-gray-400 font-light' : isGrain ? 'font-courier text-gray-600' : isLux ? 'font-outfit text-xl text-gray-400' : 'text-gray-500'}`}>
             {isHyper ? 'Capabilities.' : isGrain ? 'Index of available capabilities.' : isLux ? 'Explore our core competencies.' : `${'>'} Accessing service capabilities database...`}

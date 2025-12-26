@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Menu, X, Terminal, Volume2, VolumeX, Eye, Zap, Sparkles, Circle, Triangle, Minus, FileText, Aperture } from 'lucide-react';
-import { NavItem } from '../types';
-import { useSound } from '../hooks/useSound';
-import { useSoundContext } from '../context/SoundContext';
-import { useTheme } from '../context/ThemeContext';
+import { NavItem } from '@/types';
+import { useSound } from '@/hooks/useSound';
+import { useSoundContext } from '@/context/SoundContext';
+import { useTheme } from '@/context/ThemeContext';
 
 const navItems: NavItem[] = [
   { label: 'HOME', href: '#hero' },
@@ -211,7 +211,7 @@ const Navbar: React.FC = () => {
             : isGlass 
               ? 'bg-black/60 backdrop-blur-xl border-white/10'
               : isClay
-                ? 'bg-[#F0F4F8] border-white rounded-b-3xl shadow-xl'
+                ? 'bg-clay-bg border-white rounded-b-3xl shadow-xl'
                 : isAnti
                   ? 'bg-yellow-300 border-black'
                   : isHyper

@@ -37,7 +37,7 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
 
   return (
     <motion.div 
-      className="fixed inset-0 z-[100] bg-black flex items-start justify-start p-8 md:p-16 font-mono text-green-500 text-sm md:text-base overflow-hidden"
+      className="fixed inset-0 z-100 bg-black flex items-start justify-start p-8 md:p-16 font-mono text-green-500 text-sm md:text-base overflow-hidden"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
       transition={{ duration: 0.8 }}
