@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
                          : isLux
                            ? 'text-white font-outfit uppercase tracking-tight text-7xl md:text-9xl leading-[0.8]'
                    : 'text-white'}`}>
-            {isHyper ? 'We build the' : 'WE BUILD THE'} <br />
+              {isHyper ? 'Tech solutions for' : 'TECH SOLUTIONS FOR'} <br />
             <span className={isNeu 
               ? 'bg-black text-white px-2' 
               : isGlass 
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
                         : isLux
                           ? 'text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500'
                   : 'text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500'}>
-              {isHyper ? 'future.' : 'FUTURE'}
+              {isHyper ? 'everyone.' : 'EVERYONE'}
               <span className={isNeu ? 'text-neu-yellow' : isGlass ? 'text-purple-300' : isClay ? 'text-clay-teal' : isAnti ? 'text-red-600' : isHyper ? 'hidden' : isGrain ? 'text-grain-red' : isLux ? 'text-white' : 'text-ats-red animate-blink'}>{isLux ? '.' : '_'}</span>
             </span>
           </h1>
@@ -99,9 +99,9 @@ const Hero: React.FC = () => {
                          : isLux
                            ? 'font-outfit text-gray-400 text-xl font-light tracking-wide pt-4 border-none pl-0'
                    : 'text-gray-400 border-l-2 border-white/20 pl-4'}`}>
-            <p className={isAnti ? 'bg-red-200 inline-block px-1' : ''}>{isAnti ? 'WARNING:' : isHyper || isLux ? '' : '>'} {isHyper || isLux ? 'Initializing systems.' : 'Initializing ATS Tech systems...'}</p>
-            <p className={isAnti ? 'bg-green-200 inline-block px-1 transform rotate-1' : ''}>{isAnti ? 'ERROR:' : isHyper || isLux ? '' : '>'} {isHyper || isLux ? 'Loading solutions.' : 'Loading advanced solutions...'}</p>
-            <p className={isAnti ? 'bg-blue-200 inline-block px-1' : ''}>{isAnti ? 'FATAL:' : isHyper || isLux ? '' : '>'} <Typewriter text={isHyper || isLux ? "Ready." : "Ready to transform your business infrastructure."} startDelay={1000} cursor={!isHyper && !isLux} /></p>
+            <p className={isAnti ? 'bg-red-200 inline-block px-1' : ''}>{isAnti ? 'WARNING:' : isHyper || isLux ? '' : '>'} {isHyper || isLux ? 'Bridging the tech gap.' : 'Bridging the tech gap in Northern Ghana...'}</p>
+            <p className={isAnti ? 'bg-green-200 inline-block px-1 transform rotate-1' : ''}>{isAnti ? 'ERROR:' : isHyper || isLux ? '' : '>'} {isHyper || isLux ? 'Low-cost solutions.' : 'Deploying low-cost, accessible solutions...'}</p>
+            <p className={isAnti ? 'bg-blue-200 inline-block px-1' : ''}>{isAnti ? 'FATAL:' : isHyper || isLux ? '' : '>'} <Typewriter text={isHyper || isLux ? "For everyone." : "Tech solutions for individuals and businesses."} startDelay={1000} cursor={!isHyper && !isLux} /></p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">

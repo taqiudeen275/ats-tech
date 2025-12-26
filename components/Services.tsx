@@ -7,46 +7,46 @@ import { useTheme } from '@/context/ThemeContext';
 
 const services: Service[] = [
   {
-    id: 'dev',
-    title: 'SOFTWARE_DEV',
-    description: 'Custom binaries and executables tailored to your specific parameters.',
-    icon: Code,
-    command: 'run build'
-  },
-  {
-    id: 'cloud',
-    title: 'CLOUD_ARCH',
-    description: 'Scalable infrastructure solutions deployed on distributed networks.',
+    id: 'edu',
+    title: 'MY_ESCHOOL',
+    description: 'Comprehensive School Management System for basic and tertiary institutions. Student, Staff, and Parent portals.',
     icon: Cloud,
-    command: 'deploy --global'
+    command: 'init education'
   },
   {
-    id: 'hardware',
-    title: 'HARDWARE_INT',
-    description: 'Physical layer integration and IoT sensor networks.',
-    icon: Cpu,
-    command: 'init hardware'
+    id: 'food',
+    title: 'FOOD_ECOMMERCE',
+    description: 'Multi-vendor food ordering and delivery webapp. Connecting vendors, riders, and hungry users.',
+    icon: Code,
+    command: 'order --deploy'
   },
   {
-    id: 'security',
-    title: 'CYBER_SEC',
-    description: 'Advanced encryption and firewall protection systems.',
+    id: 'shop',
+    title: 'GEN_ECOMMERCE',
+    description: 'Universal ecommerce platform for businesses. Integrated delivery systems and secure payments.',
     icon: Lock,
-    command: 'secure --lock'
+    command: 'shop --open'
   },
   {
-    id: 'automation',
-    title: 'AUTO_MATION',
-    description: 'Scripting and AI-driven process optimization.',
+    id: 'ride',
+    title: 'RIDERS_APP',
+    description: 'On-demand ride-hailing and custom delivery request platform. Open registration for drivers.',
     icon: TerminalIcon,
-    command: 'cron start'
+    command: 'ride request'
   },
   {
-    id: 'analytics',
-    title: 'DATA_ANALYTICS',
-    description: 'Visualizing complex data streams for actionable intelligence.',
+    id: 'tuma',
+    title: 'TUMA_REQUEST',
+    description: 'Service marketplace (TaskRabbit style). Request painters, plumbers, or any service instantly.',
+    icon: Cpu,
+    command: 'task --new'
+  },
+  {
+    id: 'media',
+    title: 'MEDIA_STREAM',
+    description: 'Regional movie subscription platform focusing on Northern part movie and indie creators.',
     icon: BarChart,
-    command: 'analyze --deep'
+    command: 'stream play'
   }
 ];
 
@@ -60,7 +60,7 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
           <h2 className={`text-4xl font-mono font-bold mb-4 flex items-center gap-4 ${isNeu ? 'text-black uppercase tracking-black' : isClay ? 'text-gray-800' : isAnti ? 'text-black font-serif italic' : isHyper ? 'text-black font-sans font-light' : isGrain ? 'text-grain-dark font-courier' : isLux ? 'font-outfit font-bold uppercase text-6xl' : 'text-white'}`}>
-            <span className={isNeu ? 'bg-black text-white px-2' : isGlass ? 'text-cyan-300' : isClay ? 'bg-clay-blue text-white rounded-full px-2 shadow-inner' : isAnti ? 'text-blue-700 bg-yellow-300 p-2' : isHyper ? 'hidden' : isGrain ? 'text-grain-dark bg-transparent border border-grain-dark rounded-full px-3 py-1 text-sm' : isLux ? 'hidden' : 'text-ats-red'}>#</span> {isHyper ? 'Services' : isGrain ? 'Department_Services' : 'SERVICES'}
+            <span className={isNeu ? 'bg-black text-white px-2' : isGlass ? 'text-cyan-300' : isClay ? 'bg-clay-blue text-white rounded-full px-2 shadow-inner' : isAnti ? 'text-blue-700 bg-yellow-300 p-2' : isHyper ? 'hidden' : isGrain ? 'text-grain-dark bg-transparent border border-grain-dark rounded-full px-3 py-1 text-sm' : isLux ? 'hidden' : 'text-ats-red'}>#</span> {isHyper ? 'Roadmap' : isGrain ? 'Future_Projects' : 'ROADMAP'}
           </h2>
           {isNeu ? (
             <div className="h-2 w-full bg-black"></div>
@@ -78,7 +78,7 @@ const Services: React.FC = () => {
             <div className="h-px w-full bg-linear-to-r from-ats-red to-transparent opacity-50"></div>
           )}
           <p className={`font-mono mt-4 text-sm max-w-2xl ${isNeu ? 'text-black font-bold' : isGlass ? 'text-white/70' : isClay ? 'text-gray-500' : isAnti ? 'text-black font-serif text-xl bg-gray-200' : isHyper ? 'font-sans text-gray-400 font-light' : isGrain ? 'font-courier text-gray-600' : isLux ? 'font-outfit text-xl text-gray-400' : 'text-gray-500'}`}>
-            {isHyper ? 'Capabilities.' : isGrain ? 'Index of available capabilities.' : isLux ? 'Explore our core competencies.' : `${'>'} Accessing service capabilities database...`}
+            {isHyper ? 'Upcoming.' : isGrain ? 'Index of future developments.' : isLux ? 'Explore our future innovations.' : `${'>'} Accessing future project database...`}
             {!isHyper && !isLux && <br/>}
             {!isHyper && !isGrain && !isLux && `${'>'} 6 Modules found.`}
           </p>

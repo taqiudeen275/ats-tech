@@ -6,26 +6,26 @@ import { useTheme } from '../context/ThemeContext';
 const solutions: Solution[] = [
   {
     id: 'sol-01',
-    name: 'CORE_OS.exe',
-    version: 'v4.2.0',
-    description: 'A centralized operating dashboard for enterprise resource management.',
-    specs: ['React Based', 'Real-time Sync', 'Encrypted DB'],
+    name: 'SALE_SAFE.exe',
+    version: 'v2.1.0',
+    description: 'Comprehensive Point of Sale system. Works fully offline, online, or hybrid. Supports Windows, Android Mobile & Tablet.',
+    specs: ['Offline/Online Sync', 'Multi-Platform', 'Inventory Mgmt'],
     image: 'https://picsum.photos/600/400?grayscale&blur=2'
   },
   {
     id: 'sol-02',
-    name: 'NEURAL_NET.dat',
-    version: 'v1.0.9',
-    description: 'AI-driven predictive analytics engine tailored for financial markets.',
-    specs: ['TensorFlow', 'Python API', 'Low Latency'],
+    name: 'EVENT_WEAVE.sys',
+    version: 'v1.5.0',
+    description: 'Complete event management suite. Ticketing, live verification, and secure voting system (USSD & Web integration).',
+    specs: ['Live Verification', 'USSD Voting', 'Paid/Free Events'],
     image: 'https://picsum.photos/600/401?grayscale&blur=2'
   },
   {
     id: 'sol-03',
-    name: 'SECURE_GATE.bin',
-    version: 'v9.9.1',
-    description: 'Zero-trust authentication gateway for remote workforce access.',
-    specs: ['OAuth2', 'Biometric', 'Audit Logs'],
+    name: 'MEETING_HOST.net',
+    version: 'v1.0.0',
+    description: 'Customized secure video conferencing platform based on Jitsi Meet. Tailored for online event hosting.',
+    specs: ['Custom Jitsi Core', 'High Scalability', 'Low Latency'],
     image: 'https://picsum.photos/600/402?grayscale&blur=2'
   }
 ];
@@ -59,7 +59,7 @@ const Solutions: React.FC = () => {
           <div className="w-full md:w-1/3">
             <h2 className={`text-3xl font-mono font-bold mb-8 flex items-center ${isNeu ? 'text-black' : isClay ? 'text-gray-800' : isAnti ? 'text-white font-serif bg-black p-2' : isHyper ? 'text-black font-sans font-light' : isGrain ? 'text-grain-dark font-courier' : isLux ? 'text-white font-outfit uppercase tracking-tighter text-5xl' : 'text-white'}`}>
               <span className={`mr-2 block ${isNeu ? 'bg-black w-6 h-6' : isGlass ? 'bg-white/50 w-4 h-4 rounded-full' : isClay ? 'bg-clay-blue w-6 h-6 rounded-full clay-button' : isAnti ? 'bg-white w-4 h-4 rounded-none' : isHyper ? 'hidden' : isGrain ? 'bg-grain-dark w-2 h-2 rounded-full' : isLux ? 'hidden' : 'animate-pulse bg-ats-red w-3 h-3'}`}></span> 
-              {isHyper ? 'Solutions' : isGrain ? 'File_Directory' : isLux ? 'Projects' : '/bin/solutions'}
+              {isHyper ? 'Current Projects' : isGrain ? 'Active_Projects' : isLux ? 'CURRENT PROJECTS' : '/bin/active_projects'}
             </h2>
             
             <div className={`flex flex-col space-y-2 ${isAnti ? 'space-y-0' : isHyper ? 'gap-4 space-y-0' : ''}`}>
